@@ -1,15 +1,5 @@
-// Darle la bienvenida al jugador
-// Pedirle el nombre
-// pedir el genero del personaje - que solo acepte femenino o masculino
-// preguntar que pokemon llevará el jugador - si no eligió ninguna de las opciones regresará a preguntar otra vez hasta que elija una opción
-// RUTA 1 - aparece un pokemon salvaje...
-// CONTINUAR - REGRESAR A CASA
-// si el jugador regresa a casa = perderse de su primer día como entrenador pokemon
-// si el jugador continuar = lanzar pokeball (linea 4) y enfrentarse a un pokemon de ruta
-// Si ataca 3 veces = pokemon de ruta gana - Si ataca 1 vez, baja defensa y ataca otra vez = pokemon de ruta pierde - si ataca 2 veces y baja la defensa = pokemon de ruta gana, si baja la defensa y ataca dos veces = pokemon de ruta pierde.
-// Mensaje ganador = ¡Has ganado tu primer batalla!
-// Mensaje derrota = ¡Tu pokemon no puede seguir combatiendo! --> Decides irte a casa y pierdes tu primer dia como entrenador pokemon.
-
+let pregunta
+do{
 let bienvenida = "Bienvenido al mundo de Pokémon - edición Rojo Fuego."
 alert(bienvenida)
 
@@ -26,6 +16,7 @@ function personaje(nombre, genero) {
     }
     let personajeCompleto = "Ficha de entrenador\n" + "Nombre: " + nombre + "\nGénero: " + genero
     alert(personajeCompleto)
+    return personajeCompleto
 }
 
 let nombre = prompt("¿Cómo te llamas?").toLowerCase()
@@ -80,34 +71,36 @@ if (primeraRuta === "1"){
     break
 }
 else if (primeraRuta === "2"){
-    alert("Decides irte a casa pero otro Pokémon se mete en tu camino... No tienes otra opción que pelear")
+    alert("Decides irte a casa pero otro Pokémon se mete en tu camino... No tienes otra opción que luchar.")
     alert("¡Es un Spearow salvaje!")
     break
 }
 }while (isNaN(primeraRuta) || primeraRuta >=0 || primeraRuta <=3)
 
-let mensajeCombate = "Te lanzas a la batalla junto a" + " " + primerPokemon + " " + "¿Cuál será tu primer movimiento?"
+let mensajeCombate = "Te lanzas a la batalla junto a tu" + " " + primerPokemon + " " + "¿Cuál será tu primer movimiento?"
 alert(mensajeCombate)
 
-let vidaEnemigo = 4
+let vidaEnemigo = 3
 let ataque
 function peleaUno(golpe){
     ataque = vidaEnemigo - golpe
-    alert("El pokemon enemigo tiene" + " " + (ataque) + " " + "de vida")
+    alert("El Pokémon enemigo tiene" + " " + (ataque) + " " + "de vida")
 }
 
 let movimiento
 let vida
 do{
-movimiento = prompt("1. Arañazo\n" + "2. Movimiento especial")
+movimiento = prompt("1. Ataque Normal\n" + "2. Movimiento especial")
 if (movimiento === "1"){
     peleaUno(1)
     vida = ataque
+    alert("El enemigo se ha aumentado el ataque, el proximo movimiento será mortal...")
     break
 }
 else if (movimiento === "2"){
     peleaUno(2)
     vida = ataque
+    alert("El enemigo se ha aumentado el ataque, el proximo movimiento será mortal...")
     break
 }
 else{
@@ -119,12 +112,13 @@ let vidaFinal
 function peleaDos(golpeFinal){
     vidaFinal = vida - golpeFinal
     alert("El pokemon enemigo tiene" + " " + vidaFinal + " " + "de vida")
+    return vidaFinal
 }
 
 let enemigoVida
 let movimientoDos
 do{
-movimientoDos = prompt("1. Arañazo\n" + "2. Movimiento especial")
+movimientoDos = prompt("¿Cuál es tu siguiente movimiento?\n"+ "1. Ataque Normal\n" + "2. Movimiento especial")
 if (movimientoDos === "1"){
     peleaDos(1)
     enemigoVida = vidaFinal
@@ -141,8 +135,18 @@ else{
 } while (isNaN(movimientoDos) || movimientoDos >= "0" || movimientoDos <= "3")
 
 if(enemigoVida == "1" || enemigoVida == "2"){
-    alert("¡Has perdido!")
+    alert("El enemigo lanza un tornado quitandote toda la vida... ¡Has perdido!")
 }
-else if(enemigoVida == "0"){
-    alert("¡Has ganado 30 de dinero!")
+else if(enemigoVida == "0" || enemigoVida == "-1"){
+    alert("El enemigo ha caido... ¡Has ganado!")
 }
+let mensajeFinal = "Has llegado al final de la BETA..."
+alert(mensajeFinal)
+do{
+pregunta = Number(prompt("¿Quieres volver a jugar?\n 1. Si\n 2. No"))
+if (pregunta == 2){
+    alert("Se cierra el juego")
+    break
+}
+}while (isNaN(pregunta) || pregunta >=3 || pregunta <= 0)
+}while (pregunta == 1)
