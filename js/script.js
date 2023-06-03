@@ -144,5 +144,5 @@ if(enemigoVida == "1" || enemigoVida == "2"){
     alert("¡Has perdido!")
 }
 else if(enemigoVida == "0"){
-    alert("¡Has ganado!")
+    alert("¡Has ganado 30 de dinero!")
 }
