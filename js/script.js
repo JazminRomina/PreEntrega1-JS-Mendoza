@@ -1,6 +1,6 @@
 let pregunta
 do{
-let bienvenida = "Bienvenido al mundo de Pokémon - edición Rojo Fuego."
+let bienvenida = "¡Bienvenido al mundo de Pokémon: Edición Rojo Fuego!"
 alert(bienvenida)
 
 function personaje(nombre, genero) {
@@ -64,7 +64,7 @@ do{
     }
 } while (isNaN(primerPokemon) || primerPokemon >= 0 || primerPokemon <=5)
 
-let salirDelLab = "Ahora mismo te encuentras caminando por la ruta 1 con dirección a la Ciudad verde"
+let salirDelLab = "Ahora mismo te encuentras caminando por la ruta 1 con destino a la primer Ciudad"
 alert(salirDelLab)
 let primeraRuta
 
@@ -75,7 +75,7 @@ if (primeraRuta === "1"){
     break
 }
 else if (primeraRuta === "2"){
-    alert("Decides irte a casa pero otro Pokémon se mete en tu camino... No tienes otra opción que luchar.")
+    alert("Decides irte a casa pero otro Pokémon se mete en tu camino... No tienes otra opción más que luchar.")
     alert("¡Es un Spearow salvaje!")
     break
 }
@@ -98,13 +98,13 @@ movimiento = prompt("1. Ataque Normal\n" + "2. Movimiento especial")
 if (movimiento === "1"){
     peleaUno(1)
     vida = ataque
-    alert("El enemigo se ha aumentado el ataque, el proximo movimiento será mortal...")
+    alert("El enemigo se ha aumentado el ataque, el próximo movimiento será mortal...")
     break
 }
 else if (movimiento === "2"){
     peleaUno(2)
     vida = ataque
-    alert("El enemigo se ha aumentado el ataque, el proximo movimiento será mortal...")
+    alert("El enemigo se ha aumentado el ataque, el próximo movimiento será mortal...")
     break
 }
 else{
