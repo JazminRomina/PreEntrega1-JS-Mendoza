@@ -19,7 +19,11 @@ function personaje(nombre, genero) {
     return personajeCompleto
 }
 
-let nombre = prompt("¿Cómo te llamas?").toLowerCase()
+let nombre
+do{
+nombre = prompt("¿Cómo te llamas?").toLowerCase().trim()
+} while (nombre === "")
+
 let genero = prompt("¿Personaje feminino o masculino?").toLowerCase()
 personaje(nombre, genero)
 
