@@ -12,11 +12,15 @@ function personaje(nombre, genero) {
     let personajeCompleto = "Ficha de entrenador\n" + "Nombre: " + nombre + "\nGénero: " + genero
     return personajeCompleto
 }
-let nombre
-do{
-nombre = prompt("¿Cuál es tu nombre?").toLowerCase().trim()
-}while (nombre === "")
 
+let nombre
+function verificarNombre (){
+    nombre = prompt("¿Cuál es tu nombre?").toLowerCase().trim()
+    if (nombre === ""){
+        verificarNombre()
+    }
+}
+verificarNombre()
 let genero = prompt("¿Personaje femenino o masculino?")
 alert(personaje(nombre, genero))
 
